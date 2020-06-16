@@ -1,0 +1,120 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<%@ Register Src="UserLogin.ascx" TagName="UserLogin" TagPrefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>服装购物网站</title>
+    
+<SCRIPT type="text/javascript" src="Images/jquery.js"></SCRIPT>
+<LINK rel="stylesheet" type="text/css" href="Images/mblue.css">
+<SCRIPT type="text/javascript" src="Images/imgutil.js"></SCRIPT>
+<META name="GENERATOR" content="MSHTML 9.00.8112.16526">
+<STYLE>#loginform .WB_loginButton{	margin-top:0px;}.WB_loginButton img {vertical-align: inherit;}</STYLE>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+    <CENTER>
+<DIV id="toubiao" class="topnav">
+<TABLE class="bttab" border="0" cellSpacing="0" cellPadding="0" 
+  align="CENTER"><TBODY>
+  <TR>
+      <td align="left" colspan="2">
+          <uc1:UserLogin ID="UserLogin1" runat="server" />
+      </td>
+    <TD style="padding-right: 15px;" width="450" align="right">&nbsp;<A onclick="window.external.AddFavorite(location.href,document.title);" 
+      href="#" target="_self" style="color: #000000">加入收藏</A>| &nbsp;<a href="UserStReg.aspx" style="color: #000000">会员注册</a>| &nbsp;</TD></TR>
+  </TBODY></TABLE></DIV>
+<DIV class="lm">
+<DIV class="lmi">
+<DIV class="logonav">
+<DIV class="logotitle">
+    <asp:Image ID="Image1" runat="server" Height="100%" ImageUrl="~/images/ejxjlce0.jpg"
+        Width="100%" /></DIV>
+    &nbsp;</DIV>
+<DIV class="mainnav" style="background-image: url(images/menu.jpg); color: #ffffff; background-repeat: repeat-x">
+<DIV style="color: #ffffff"><SPAN id="menu_idx" class="menu" ><A 
+href=Default.aspx style="color: #ffffff" >网站首页</A></SPAN><SPAN id="menu_idx_217912" class="menu"  ><a href="NewShangPinList.aspx" style="color: #ffffff">最新服装</a></SPAN><SPAN 
+id="menu_idx_217914" class="menu"  ><a href="HotShangPinList.aspx" style="color: #ffffff">热门服装</a></SPAN><SPAN id="menu_idx_217924" class="menu"  ><a href="UserStReg.aspx" style="color: #ffffff">会员注册</a></SPAN>
+    <SPAN 
+id="menu_idx_217940" class="menu"  ><a href="SearchGoods.aspx" style="color: #ffffff">服装搜索</a></SPAN><SPAN id="menu_idx_217944" class="menu"  ><a href="Shopping.aspx" style="color: #ffffff">购物车</a></SPAN><SPAN 
+class="msplit"></SPAN><SPAN id="menu_idx_217948" class="menu" ><a href="UserHome.aspx" style="color: #ffffff">会员中心</a></SPAN>
+
+</DIV></DIV>
+
+
+
+</DIV></DIV>
+
+
+<DIV class="main" align="center">
+<DIV class="content"><!-- 附加栏目开始 -->
+<DIV class="addcontent">
+<!-- 附件栏目类型：注册登陆 -->
+<DIV class="additioncolumn">
+<DIV class="additioncolumntitle" style="background-image: url(images/menu.jpg); background-repeat: repeat-x">
+<DIV class="additioncolumntitle01">服装分类</DIV>
+<DIV class="additioncolumntitle02"></DIV></DIV>
+<DIV class="acontent">
+
+<asp:DataList ID="DlGoodsType" runat="server"   ForeColor="#333333">
+                            <ItemTemplate>
+                      
+                      <DIV class="content3"><a href='<%#Eval("id","ShangPinTypeList.aspx?id={0}")%>'>
+                                        <%#Eval("name")%>
+                                    </a> </DIV>
+                            </ItemTemplate>
+                           
+                        </asp:DataList>
+</DIV></DIV>
+<DIV class="additioncolumn">
+<DIV class="additioncolumntitle" style="background-image: url(images/menu.jpg); background-repeat: repeat-x">
+    品牌分类</DIV>
+<DIV class="acontent">
+    &nbsp;<asp:DataList ID="DataList1" runat="server"   ForeColor="#333333">
+        <ItemTemplate>
+            <DIV class="content3">
+                <a href='<%#Eval("id","ShangPinPPTypeList.aspx?id={0}")%>'>
+                    <%#Eval("name")%>
+                </a>
+            </div>
+        </ItemTemplate>
+    </asp:DataList></DIV></DIV>
+
+<DIV class="additioncolumn">
+<DIV class="additioncolumntitle" style="background-image: url(images/menu.jpg); background-repeat: repeat-x">
+    季节分类</DIV>
+<DIV class="acontent">
+    &nbsp;<asp:DataList ID="DataList2" runat="server"   ForeColor="#333333">
+        <ItemTemplate>
+            <DIV class="content3">
+                <a href='<%#Eval("id","ShangPinJJTypeList.aspx?id={0}")%>'>
+                    <%#Eval("name")%>
+                </a>
+            </div>
+        </ItemTemplate>
+    </asp:DataList></DIV></DIV>
+
+<!-- 附加栏目： 收藏本站 -->
+</DIV><!-- 附加栏目结束 -->
+<DIV class="maincontent" align="left">
+        <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+</DIV>
+<DIV style="clear: both;">
+    &nbsp;</DIV></DIV></DIV>
+<DIV class="bottomnav" align="center">
+<DIV class="bottommenu">
+<DIV>    Powered by服装购物网站© 2018
+                Copyright&nbsp; 版权所有  </DIV></DIV>
+<DIV> <a href="Admin/Login.aspx">后台入口</a></DIV>
+
+</DIV></CENTER>
+    </div>
+    </form>
+</body>
+</html>
